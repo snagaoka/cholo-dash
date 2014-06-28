@@ -29,6 +29,9 @@ describe("Array functions", function(){
     result.should.not.include(2);
     result.should.not.include(5);
     result.should.not.include(10);
+});
+
+it("should return the index of the first element that passes the callback check", function(){
 
 
 });
