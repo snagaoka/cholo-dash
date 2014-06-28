@@ -1,5 +1,5 @@
 var chai = require('chai'),
-  should = chai.shoul,
+  should = chai.should(),
   _ = require('../cholo-dash.js');
 
 describe("Array functions", function(){
