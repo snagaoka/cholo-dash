@@ -18,4 +18,22 @@ describe("Array functions", function(){
 
   });
 
+  it("should identify the difference between two different arrays", function(){
+    var expected = [1, 3, 4];
+    var input1 = [1, 2, 3, 4, 5]; 
+    var input2 [5, 2, 10];
+    var result = _.difference(input)
+    result.should.include(1);
+    result.should.include(3);
+    result.should.include(4);
+    result.should.not.include(2);
+    result.should.not.include(5);
+    result.should.not.include(10);
+});
+
+it("should return the index of the first element that passes the callback check", function(){
+
+
+});
+
 });
