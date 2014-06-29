@@ -62,14 +62,25 @@ If a callback is provided elements at the beginning of the array are returned as
 The callback is bound to thisArg and invoked with three arguments; (value, index, array).
 If a property name is provided for callback the created "_.pluck" style callback will return the property value of the given element.
 If an object is provided for callback the created "_.where" style callback will return true for elements that have the properties of the given object, else false.
+
+arg2 can be a callback function that accepts a function number.
+
 */
 
-_.first = function (ar, callback, n) {
+_.first = function (ar, arg2) {
 	var newArray = [];
-	for (var i = 0; i < n; i++) {
-		//if(callback(ar[i]) < n) {
-		newArray.push(ar[i]);
-		//};
+	if(typeof arg2 === 'function') { 
+		for (var i = 0; i < ar.length; i++) {
+			if(arg2(ar[i])) {
+				newArray.push(ar[i]);
+			};
+		};
+	} else { // assume number
+		for (var i = 0; i < arg2; i++) {
+			if(arg2(ar[i])) {
+				newArray.push(ar[i]);
+			};
+		};
 	};
 	return newArray;
 };
