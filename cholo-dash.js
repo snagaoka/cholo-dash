@@ -5,17 +5,18 @@ var _ = {};
 Creates an array with all falsey values removed. 
 The values false, null, 0, "", undefined, and NaN are all falsey.
 */
-_.compact = function (ar) {
+_.compact = function(ar) {
+	var newArray = []
 	for (var i = ar.length - 1; i >= 0; i--) {
-		if(ar[i] == false) {
-			ar.splice(i,1);
+		if(ar[i] != false) {
+			newArray.push(ar[i]);
 		};
 	};
-	return ar;
+	return newArray;
 };
 
 /*
-Creates an array excluding all values of the provided arrays using strict equality for comparisons, i.e. ===.
+Creates an array excluding all values object of the provided arrays using strict equality for comparisons, i.e. ===.
 */
 _.difference = function (ar, values) {
 	for (var i = ar.length - 1; i >= 0; i--) {
