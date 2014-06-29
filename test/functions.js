@@ -8,7 +8,7 @@ describe("Array functions", function(){
 
   it("should compact an array", function(){
     var expected = [1, 2, 3];
-    var input = [0, 1, , false, 2, '', 3];
+    var input = [0, 1, false, 2, '', 3];
     var result = _.compact(input);
     result.should.include(1);
     result.should.include(2);
@@ -33,7 +33,6 @@ describe("Array functions", function(){
   });
 
   it("should return the index of the first element that passes the callback check", function(){
-    var expected = 2;
     var input1 = [
       { 'name': 'barney',  'age': 36, 'blocked': false },
       { 'name': 'fred',    'age': 40, 'blocked': true },
@@ -46,5 +45,21 @@ describe("Array functions", function(){
     result.should.not.equal(0);
     result.should.not.equal(1);
   });
+
+it("should return the index of the first element that passes the callback check, counts from right to left", function(){
+
+  var input1 = [
+    { 'name': 'barney',  'age': 36, 'blocked': false },
+    { 'name': 'fred',    'age': 40, 'blocked': true },
+    { 'name': 'pebbles', 'age': 1,  'blocked': false }
+  ];
+  var result = _.findLastIndex(input1, function(chr){
+    return chr.age > 30;
+  })
+  result.should.equal(1);
+  result.should.not.equal(0);
+  result.should.not.equal(2);
+
+});
 
 });
