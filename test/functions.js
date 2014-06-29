@@ -48,4 +48,20 @@ it("should return the index of the first element that passes the callback check"
 
 });
 
+it("should return the index of the first element that passes the callback check, counts from right to left", function(){
+  var expected = 1;
+  var input1 = [
+    { 'name': 'barney',  'age': 36, 'blocked': false },
+    { 'name': 'fred',    'age': 40, 'blocked': true },
+    { 'name': 'pebbles', 'age': 1,  'blocked': false }
+  ];
+  var result = _.findIndex(input1, function(chr){
+    return chr.age > 30;
+  })
+  result.should.equal(1);
+  result.should.not.equal(0);
+  result.should.not.equal(2);
+
+});
+
 });
