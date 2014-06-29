@@ -21,8 +21,8 @@ describe("Array functions", function(){
   it("should identify the difference between two different arrays", function(){
     var expected = [1, 3, 4];
     var input1 = [1, 2, 3, 4, 5]; 
-    var input2 [5, 2, 10];
-    var result = _.difference(input)
+    var input2 = [5, 2, 10];
+    var result = _.difference(input1, input2)
     result.should.include(1);
     result.should.include(3);
     result.should.include(4);
@@ -32,7 +32,18 @@ describe("Array functions", function(){
 });
 
 it("should return the index of the first element that passes the callback check", function(){
-
+  var expected = 2;
+  var input1 = [
+    { 'name': 'barney',  'age': 36, 'blocked': false },
+    { 'name': 'fred',    'age': 40, 'blocked': true },
+    { 'name': 'pebbles', 'age': 1,  'blocked': false }
+  ];
+  var result = _.findIndex(input, function(chr){
+    return chr.age < 20;
+  })
+  result.should.include(2);
+  result.should.not.include(0);
+  result.should.not.include(1);
 
 });
 
