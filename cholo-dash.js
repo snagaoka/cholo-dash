@@ -76,10 +76,8 @@ _.first = function (ar, arg2) {
 			};
 		};
 	} else { // assume number
-		for (var i = 0; i < arg2; i++) {
-			if(arg2(ar[i])) {
+		for (var i = 0; i < arg2; i++){
 				newArray.push(ar[i]);
-			};
 		};
 	};
 	return newArray;

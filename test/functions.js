@@ -75,9 +75,8 @@ describe("Array functions", function(){
    it("should return the first elememt or first n elements", function(){
    
      var input1 = [1, 2, 3];
-     var result = _.first(input1, function(n){
-      return n; 
-    });
+     var result = _.first(input1, 2);
+
       result.should.include(1);
       result.should.include(2);
       result.should.not.include(3);
