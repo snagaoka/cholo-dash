@@ -46,20 +46,30 @@ describe("Array functions", function(){
     result.should.not.equal(1);
   });
 
-it("should return the index of the first element that passes the callback check, counts from right to left", function(){
+  it("should return the index of the first element that passes the callback check, counts from right to left", function(){
 
-  var input1 = [
-    { 'name': 'barney',  'age': 36, 'blocked': false },
-    { 'name': 'fred',    'age': 40, 'blocked': true },
-    { 'name': 'pebbles', 'age': 1,  'blocked': false }
-  ];
-  var result = _.findLastIndex(input1, function(chr){
-    return chr.age > 30;
-  })
-  result.should.equal(1);
-  result.should.not.equal(0);
-  result.should.not.equal(2);
+    var input1 = [
+      { 'name': 'barney',  'age': 36, 'blocked': false },
+      { 'name': 'fred',    'age': 40, 'blocked': true },
+      { 'name': 'pebbles', 'age': 1,  'blocked': false }
+    ];
+    var result = _.findLastIndex(input1, function(chr){
+      return chr.age > 30;
+    });
+    result.should.equal(1);
+    result.should.not.equal(0);
+    result.should.not.equal(2);
+  });
 
-});
+  it("should return the first elememt or first n elements", function(){
+   
+     var input1 = [1, 2, 3];
+     var result = _.first(input1, function(n){
+      return n < 3 ; 
+    });
+      result.should.include(1);
+      result.should.include(2);
+      result.should.not.include(3);
+  });
 
 });
