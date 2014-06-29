@@ -1,5 +1,6 @@
 var chai = require('chai'),
   should = chai.should(),
+  expect = chai.expect(),
   _ = require('../cholo-dash.js');
 
 describe("Array functions", function(){
@@ -38,12 +39,12 @@ it("should return the index of the first element that passes the callback check"
     { 'name': 'fred',    'age': 40, 'blocked': true },
     { 'name': 'pebbles', 'age': 1,  'blocked': false }
   ];
-  var result = _.findIndex(input, function(chr){
+  var result = _.findIndex(input1, function(chr){
     return chr.age < 20;
   })
-  result.should.include(2);
-  result.should.not.include(0);
-  result.should.not.include(1);
+  result.should.equal(2);
+  result.should.not.equal(0);
+  result.should.not.equal(1);
 
 });
 
