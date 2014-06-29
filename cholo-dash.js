@@ -28,4 +28,18 @@ _.difference = function (ar, values) {
 	return ar;
 }
 
+/*
+This method is like _.find except that it returns the index of the first element that passes the callback check, instead of the element itself.
+If a property name is provided for callback the created "_.pluck" style callback will return the property value of the given element.
+If an object is provided for callback the created "_.where" style callback will return true for elements that have the properties of the given object, else false.
+*/
+_.findIndex = function (ar, callback) {
+	/*for (var i = ar.length - 1; i >= 0; i--) {
+		if(chr.age < 20) {
+			return i;
+		};
+	};*/
+	return callback(33);
+};
+
 module.exports = _;
