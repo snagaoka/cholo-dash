@@ -83,5 +83,37 @@ _.first = function (ar, arg2) {
 	return newArray;
 };
 
+// Flattens a nested array (the nesting can be to any depth).
+
+//How does the program know when a place in an array has more than one value
+
+_.flatten = function (ar) {
+	var fatArray = [];
+	var flatArray = [];
+	for (var i = 0; i < ar.length ; i++){
+		 if(ar[i].length > 1) {
+		 	fatArray = ar.splice(i, ar[i].length);
+		 }
+	for (var j = 0; j < fatArray.length; j++) {
+		}
+			flatArray.push(ar[i][j]);
+
+	};
+	return flatArray;
+};
+
+// Creates an array of elements from the specified indexes, or keys, of the collection. 
+
+_.at = function(ar, arg2) {
+	var newArray = [];
+	for (var i = ar.length - 1; i >= 0; i--){
+		for (var j = arg2.length -1; j>=0; j--){
+			if(i === arg2[j]){
+				newArray.push(ar[i]);
+			};
+		};
+	};
+	return newArray;
+};
 
 module.exports = _;

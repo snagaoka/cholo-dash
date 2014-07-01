@@ -63,23 +63,44 @@ describe("Array functions", function(){
 
   it("should return the first elememt or first n elements", function(){
    
-     var input1 = [1, 2, 3];
+     var input1 = [3, 4, 5];
      var result = _.first(input1, function(n){
-      return n < 3 ; 
+      return n < 4 ; 
     });
-      result.should.include(1);
-      result.should.include(2);
-      result.should.not.include(3);
+      result.should.include(3);
+      result.should.not.include(4);
+      result.should.not.include(5);
   });
 
    it("should return the first elememt or first n elements", function(){
    
-     var input1 = [1, 2, 3];
+     var input1 = [3,4,5];
      var result = _.first(input1, 2);
 
-      result.should.include(1);
-      result.should.include(2);
-      result.should.not.include(3);
+      result.should.include(3);
+      result.should.include(4);
+      result.should.not.include(5);
   });
 
+   it("should return a new array from an array with nested arrays", function(){
+      var input1 = [3, 4, [5, [[6]]]];
+      var input2 = [];
+      var result = _.flatten(input1);
+
+      result.should.include(3);
+      result.should.include(4);
+      result.should.include(5);
+      result.should.include(6);
+   });
+
+  it("should return a new array with the elements of a specified index", function(){
+
+      var input1 = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+      var input2 = [0, 2, 4];
+      var result = _.at(input1, input2); 
+
+      result.should.include('a');
+      result.should.include('c');
+      result.should.include('e');
+  });
 });
