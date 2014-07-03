@@ -10,8 +10,8 @@ _.compact = function(ar) {
 	for (var i = ar.length - 1; i >= 0; i--) {
 		if(ar[i] != false) {
 			newArray.push(ar[i]);
-		};
-	};
+		}
+	}
 	return newArray;
 };
 
@@ -23,9 +23,9 @@ _.difference = function (ar, values) {
 		for (var j = values.length - 1; j >= 0; j--) {
 			if(ar[i] === values[j]) {
 				ar.splice(i, 1);
-			};
-		};
-	};
+			}
+		}
+	}
 	return ar;
 };
 
@@ -38,8 +38,8 @@ _.findIndex = function (ar, callback) {
 	for (var i = 0; i < ar.length; i++) {
 		if(callback(ar[i]) === true) {
 			return i;
-		};
-	};
+		}
+	}
 };
 
 /*
@@ -51,8 +51,8 @@ _.findLastIndex = function (ar, callback) {
 	for (var i = ar.length - 1; i >= 0; i--) {
 		if(callback(ar[i]) === true) {
 			return i; 
-		};
-	};
+		}
+	}
 };
 
 
@@ -64,7 +64,6 @@ If a property name is provided for callback the created "_.pluck" style callback
 If an object is provided for callback the created "_.where" style callback will return true for elements that have the properties of the given object, else false.
 
 arg2 can be a callback function that accepts a function number.
-
 */
 
 _.first = function (ar, arg2) {
@@ -73,65 +72,65 @@ _.first = function (ar, arg2) {
 		for (var i = 0; i < ar.length; i++) {
 			if(arg2(ar[i])) {
 				newArray.push(ar[i]);
-			};
-		};
+			}
+		}
 	} else { // assume number
 		for (var i = 0; i < arg2; i++){
 				newArray.push(ar[i]);
-		};
-	};
+		}
+	}
 	return newArray;
 };
 
-// Flattens a nested array (the nesting can be to any depth).
-
-//How does the program know when a place in an array has more than one value
-
+/*
+Flattens a nested array (the nesting can be to any depth).
+How does the program know when a place in an array has more than one value. 
+*/
 _.flatten = function (ar) {
 	var finalArray = [];
 	// for(var i = 0; i < ar.length; i++){
 		// makeFlat(ar[i]);
 	// }
 	makeFlat(ar);
-
 	function makeFlat(tallArray) { //tallArray may be a number
 		if(tallArray.hasOwnProperty("length")) { //if array then run makeFlat, else push to final
-			console.log("is an array?");
+			//console.log("is an array?");
 			for(var i = 0; i < tallArray.length; i++) {
 				makeFlat(tallArray[i]); 
 			}
 		} else { //is not an array
-			console.log("is not an array?");
+			//console.log("is not an array?");
 			finalArray.push(tallArray); //push to final
 		}
-	};
-
+	}
 	return finalArray;
-
 };
 
- 
-_.indexOf = function(ar, arg2){
-	for(var i = 0; i < ar.length; i++){
-		if(ar[i] = arg2){
+/* 
+Gets the index at which the first occurrence of value is found using strict equality for comparisons, i.e. ===. 
+If the array is already sorted providing true for fromIndex will run a faster binary search. 
+*/
+_.indexOf = function(ar, arg2) {
+	for(var i = 0; i < ar.length; i++) {
+		if(ar[i] == arg2) {
 			return i;
-		};
+		}
+	} // ends for
+}; // ends indexOf
 
-	};
 
-
-
-// Creates an array of elements from the specified indexes, or keys, of the collection. 
-
+/*
+Creates an array of elements from the specified indexes, or keys, of the collection. 
+*/
 _.at = function (ar, arg2) {
 	var newArray = [];
-	for (var i = ar.length - 1; i >= 0; i--){
-		for (var j = arg2.length -1; j>=0; j--){
+	for (var i = ar.length - 1; i >= 0; i--) {
+		for (var j = arg2.length -1; j>=0; j--) {
 			if(i === arg2[j]){
 				newArray.push(ar[i]);
-			};
-		};
-	};
+			}
+		}
+	}
 	return newArray;
 };
 
