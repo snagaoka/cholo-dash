@@ -83,15 +83,26 @@ describe("Array functions", function(){
   });
 
    it("should return a new array from an array with nested arrays", function(){
-      var input1 = [3, 4, [5, [[6]]]];
-      var input2 = [];
-      var result = _.flatten(input1);
+      var input1 = [3, [4], [5, [[6]]]];
+
+      var result = _.flatten(input1, []);
 
       result.should.include(3);
       result.should.include(4);
       result.should.include(5);
       result.should.include(6);
    });
+
+   // it("should return the index which the first occurrence of value is found using strict equality for comparisons, i.e. ===. ", function(){
+   //    var input1 = [1, 4, 5, 3, 8, 3, 5];
+
+   //    var result = _.indexOf(input1, 8)
+
+   //    result.should.include(8);
+   //    result.should.not.include(1);
+   //    result.should.not.include(5);
+   //    result.should.not.include(3);
+   // });
 
   it("should return a new array with the elements of a specified index", function(){
 
