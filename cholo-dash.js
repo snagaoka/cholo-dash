@@ -65,7 +65,6 @@ If an object is provided for callback the created "_.where" style callback will 
 
 arg2 can be a callback function that accepts a function number.
 */
-
 _.first = function (ar, arg2) {
 	var newArray = [];
 	if(typeof arg2 === 'function') { 
@@ -110,12 +109,22 @@ _.flatten = function (ar) {
 Gets the index at which the first occurrence of value is found using strict equality for comparisons, i.e. ===. 
 If the array is already sorted providing true for fromIndex will run a faster binary search. 
 */
-_.indexOf = function(ar, arg2) {
-	for(var i = 0; i < ar.length; i++) {
-		if(ar[i] == arg2) {
-			return i;
-		}
-	} // ends for
+_.indexOf = function(ar, arg2, arg3) {
+	if(typeof arg3 == ""){
+		for(var i = 0; i < ar.length; i++) {
+			if(ar[i] == arg2) {
+				return i;
+			}
+		} 
+	} else {
+		//_.indexOf_2 = function(ar, arg2, arg3) {
+			for(var i >= arg3; i < ar.length; i++) {
+				if(ar[i] == arg2) {
+					return i;
+				}
+			} 
+		//}; 
+	} // ends else
 }; // ends indexOf
 
 
