@@ -46,20 +46,72 @@ describe("Array functions", function(){
     result.should.not.equal(1);
   });
 
-it("should return the index of the first element that passes the callback check, counts from right to left", function(){
+  it("should return the index of the first element that passes the callback check, counts from right to left", function(){
 
-  var input1 = [
-    { 'name': 'barney',  'age': 36, 'blocked': false },
-    { 'name': 'fred',    'age': 40, 'blocked': true },
-    { 'name': 'pebbles', 'age': 1,  'blocked': false }
-  ];
-  var result = _.findLastIndex(input1, function(chr){
-    return chr.age > 30;
-  })
-  result.should.equal(1);
-  result.should.not.equal(0);
-  result.should.not.equal(2);
+    var input1 = [
+      { 'name': 'barney',  'age': 36, 'blocked': false },
+      { 'name': 'fred',    'age': 40, 'blocked': true },
+      { 'name': 'pebbles', 'age': 1,  'blocked': false }
+    ];
+    var result = _.findLastIndex(input1, function(chr){
+      return chr.age > 30;
+    });
+    result.should.equal(1);
+    result.should.not.equal(0);
+    result.should.not.equal(2);
+  });
 
-});
+  it("should return the first elememt or first n elements", function(){
+   
+     var input1 = [3, 4, 5];
+     var result = _.first(input1, function(n){
+      return n < 4 ; 
+    });
+      result.should.include(3);
+      result.should.not.include(4);
+      result.should.not.include(5);
+  });
 
+   it("should return the first elememt or first n elements", function(){
+   
+     var input1 = [3,4,5];
+     var result = _.first(input1, 2);
+
+      result.should.include(3);
+      result.should.include(4);
+      result.should.not.include(5);
+  });
+
+   it("should return a new array from an array with nested arrays", function(){
+      var input1 = [3, [4], [5, [[6]]]];
+
+      var result = _.flatten(input1, []);
+
+      result.should.include(3);
+      result.should.include(4);
+      result.should.include(5);
+      result.should.include(6);
+   });
+
+   // it("should return the index which the first occurrence of value is found using strict equality for comparisons, i.e. ===. ", function(){
+   //    var input1 = [1, 4, 5, 3, 8, 3, 5];
+
+   //    var result = _.indexOf(input1, 8)
+
+   //    result.should.include(8);
+   //    result.should.not.include(1);
+   //    result.should.not.include(5);
+   //    result.should.not.include(3);
+   // });
+
+  it("should return a new array with the elements of a specified index", function(){
+
+      var input1 = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+      var input2 = [0, 2, 4];
+      var result = _.at(input1, input2); 
+
+      result.should.include('a');
+      result.should.include('c');
+      result.should.include('e');
+  });
 });

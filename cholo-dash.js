@@ -55,6 +55,7 @@ _.findLastIndex = function (ar, callback) {
 	};
 };
 
+
 /*
 Gets the first element or first n elements of an array. 
 If a callback is provided elements at the beginning of the array are returned as long as the callback returns truey. 
@@ -65,6 +66,7 @@ If an object is provided for callback the created "_.where" style callback will 
 arg2 can be a callback function that accepts a function number.
 
 */
+
 _.first = function (ar, arg2) {
 	var newArray = [];
 	if(typeof arg2 === 'function') { 
@@ -74,8 +76,52 @@ _.first = function (ar, arg2) {
 			};
 		};
 	} else { // assume number
-		for (var i = 0; i < arg2; i++) {
-			if(arg2(ar[i])) {
+		for (var i = 0; i < arg2; i++){
+				newArray.push(ar[i]);
+		};
+	};
+	return newArray;
+};
+
+// Flattens a nested array (the nesting can be to any depth).
+
+//How does the program know when a place in an array has more than one value
+
+_.flatten = function (ar) {
+	var finalArray = [];
+	// for(var i = 0; i < ar.length; i++){
+		// makeFlat(ar[i]);
+	// }
+	makeFlat(ar);
+
+	function makeFlat(tallArray) { //tallArray may be a number
+		if(tallArray.hasOwnProperty("length")) { //if array then run makeFlat, else push to final
+			console.log("is an array?");
+			for(var i = 0; i < tallArray.length; i++) {
+				makeFlat(tallArray[i]); 
+			}
+		} else { //is not an array
+			console.log("is not an array?");
+			finalArray.push(tallArray); //push to final
+		}
+	};
+
+	return finalArray;
+
+};
+
+ 
+// _.indexOf = function(ar, arg2)
+
+
+
+// Creates an array of elements from the specified indexes, or keys, of the collection. 
+
+_.at = function (ar, arg2) {
+	var newArray = [];
+	for (var i = ar.length - 1; i >= 0; i--){
+		for (var j = arg2.length -1; j>=0; j--){
+			if(i === arg2[j]){
 				newArray.push(ar[i]);
 			};
 		};
