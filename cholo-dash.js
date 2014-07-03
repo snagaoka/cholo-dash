@@ -111,7 +111,13 @@ _.flatten = function (ar) {
 };
 
  
-// _.indexOf = function(ar, arg2)
+_.indexOf = function(ar, arg2){
+	for(var i = 0; i < ar.length; i++){
+		if(ar[i] = arg2){
+			return i;
+		};
+
+	};
 
 
 

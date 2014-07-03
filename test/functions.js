@@ -93,16 +93,13 @@ describe("Array functions", function(){
       result.should.include(6);
    });
 
-   // it("should return the index which the first occurrence of value is found using strict equality for comparisons, i.e. ===. ", function(){
-   //    var input1 = [1, 4, 5, 3, 8, 3, 5];
+   it("should return the index which the first occurrence of value is found using strict equality for comparisons, i.e. ===. ", function(){
+      var input1 = [1, 4, 5, 3, 8, 3, 5];
 
-   //    var result = _.indexOf(input1, 8)
+      var result = _.indexOf(input1, 8)
 
-   //    result.should.include(8);
-   //    result.should.not.include(1);
-   //    result.should.not.include(5);
-   //    result.should.not.include(3);
-   // });
+      result.should.equal(5);
+   });
 
   it("should return a new array with the elements of a specified index", function(){
 
