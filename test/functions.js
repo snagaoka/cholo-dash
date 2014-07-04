@@ -131,5 +131,14 @@ describe("Array functions", function(){
       result.should.include('e');
   });
 
+  // contains
+  it("should return true if the given value is present in the array", function(){
+    var input1 = [1, 2, 3];
+    var input2 = [1];
+    var input3 = [2];
+    var result = _.contains(input1, input2, input3); 
+    result.should.eq(false);
+  });
+
 
 });
