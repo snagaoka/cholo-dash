@@ -175,4 +175,21 @@ _.at = function (ar, arg2) {
 	return newArray;
 };
 
+/*
+Checks if a given value is present in a collection using strict equality for comparisons, i.e. ===. 
+If fromIndex is negative, it is used as the offset from the end of the collection.
+*/
+_.contains = function (ar, arg1, arg2) {
+	for (var i = 0; i < ar.length; i++) {
+		for (i >= arg2; i < ar.length; i++) {
+			if(ar[i] === arg1) {
+				//console.log(function);
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+};
+
 module.exports = _;
