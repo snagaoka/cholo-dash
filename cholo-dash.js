@@ -118,7 +118,7 @@ _.indexOf = function(ar, arg2, arg3) {
 		} 
 	} else {
 		//_.indexOf_2 = function(ar, arg2, arg3) {
-			for(var i >= arg3; i < ar.length; i++) {
+			for(var i = arg3; i < ar.length; i++) {
 				if(ar[i] == arg2) {
 					return i;
 				}
@@ -126,6 +126,17 @@ _.indexOf = function(ar, arg2, arg3) {
 		//}; 
 	} // ends else
 }; // ends indexOf
+
+_.pull = function(ar, ar1){ //Removes all provided values from the given array using strict equality for comparisons, i.e. ===.
+	for(var i = 0; i < ar.length; i++){
+		for(var j =0; j < ar1.length; j++) {
+			if(ar[i] === ar1[j]){
+				ar.splice(j, 1)
+			}
+		}
+	}
+		return ar;
+	};
 
 
 /*

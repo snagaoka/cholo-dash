@@ -95,8 +95,8 @@ describe("Array functions", function(){
    // indexOf
   it("should return the index which the first occurrence of value is found using strict equality for comparisons, i.e. ===. ", function(){
     var input1 = [1, 2, 3, 1, 2, 3];
-    var result = _.indexOf(input1, 2)
-    result.should.equal(1);
+    var result = _.indexOf(input1, 2, 3)
+    result.should.equal(4);
   });
 
   // at
@@ -109,4 +109,14 @@ describe("Array functions", function(){
       result.should.include('e');
   });
   
+  it("Removes all provided values from the given array using strict equality for comparisons, i.e. ===.", function(){
+    var input1 = [1, 2, 3, 1, 2, 3];
+
+    var result = _.pull(input1, 2 , 3);
+
+    result.should.include(1);
+    result.should.include(1);
+  });
+
+
 });
