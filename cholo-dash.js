@@ -118,7 +118,7 @@ _.indexOf = function(ar, arg2, arg3) {
 		} 
 	} else {
 		//_.indexOf_2 = function(ar, arg2, arg3) {
-			for(var i >= arg3; i < ar.length; i++) {
+			for(var i = arg3; i < ar.length; i++) {
 				if(ar[i] == arg2) {
 					return i;
 				}

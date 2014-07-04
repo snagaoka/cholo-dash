@@ -94,7 +94,7 @@ describe("Array functions", function(){
 
    // indexOf
   it("should return the index which the first occurrence of value is found using strict equality for comparisons, i.e. ===. ", function(){
-    v3ar input1 = [1, 2, 3, 1, 2, 3];
+    var input1 = [1, 2, 3, 1, 2, 3];
     var result = _.indexOf(input1, 2, 3)
     result.should.equal(1);
   });
