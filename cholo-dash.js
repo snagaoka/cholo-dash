@@ -1,6 +1,7 @@
 // utility functions
 var _ = {};
 
+// ARRAY
 /*
 Creates an array with all falsey values removed. 
 The values false, null, 0, "", undefined, and NaN are all falsey.
@@ -133,13 +134,13 @@ Removes all provided values from the given array using strict equality for compa
 _.pull = function(ar, ar1) { 
 	for(var i = 0; i < ar.length; i++) {
 		for(var j =0; j < ar1.length; j++) {
-			if(ar[i] === ar1[j]){
+			if(ar[i] === ar1[j]) {
 				ar.splice(j, 1)
 			}
 		}
 	}
 	return ar;
-	};
+};
 
 /*
 Removes all elements from an array that the callback returns truey for and returns an array of removed elements. 
@@ -149,12 +150,15 @@ If an object is provided for callback the created "_.where" style callback will 
 */
 _.remove = function(ar, callback) {
 	var newArray = [];
-	for (var i = 0; i < ar.length; i++){
+	for(var i = 0; i < ar.length; i++) {
 		if(callback(ar[i] === true))
 			newArray.push(ar[i]);
 	}
 	return newArray;
-}
+};
+
+
+// COLLECTIONS
 
 /*
 Creates an array of elements from the specified indexes, or keys, of the collection. 

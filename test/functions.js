@@ -5,6 +5,8 @@ var chai = require('chai'),
 
 describe("Array functions", function(){
 
+// ARRAY
+
   // compact
   it("should compact an array", function(){
     var expected = [1, 2, 3];
@@ -98,16 +100,6 @@ describe("Array functions", function(){
     var result = _.indexOf(input1, 2, 3)
     result.should.equal(4);
   });
-
-  // at
-  it("should return a new array with the elements of a specified index", function(){
-      var input1 = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-      var input2 = [0, 2, 4];
-      var result = _.at(input1, input2); 
-      result.should.include('a');
-      result.should.include('c');
-      result.should.include('e');
-  });
   
   // pull
   it("Removes all provided values from the given array using strict equality for comparisons, i.e. ===.", function(){
@@ -119,13 +111,25 @@ describe("Array functions", function(){
 
   // remove
   it("Removes all elements from an array that the callback returns truey for and returns an array of removed elements. The callback is bound to thisArg and invoked with three arguments; (value, index, array).", function(){
-  var input1 = [1, 2, 3, 4, 5, 6];
-  var result = _.remove(input1, function(num) { return num % 2 == 0; });
-  result.should.include(2);
-  result.should.include(4);
-  result.should.include(6);
+    var input1 = [1, 2, 3, 4, 5, 6];
+    var result = _.remove(input1, function(num) { return num % 2 == 0; });
+    result.should.include(2);
+    result.should.include(4);
+    result.should.include(6);
+  });
 
 
-});
+// COLLECTIONS
+
+  // at
+  it("should return a new array with the elements of a specified index", function(){
+      var input1 = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+      var input2 = [0, 2, 4];
+      var result = _.at(input1, input2); 
+      result.should.include('a');
+      result.should.include('c');
+      result.should.include('e');
+  });
+
 
 });
