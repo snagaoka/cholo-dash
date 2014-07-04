@@ -127,24 +127,33 @@ _.indexOf = function(ar, arg2, arg3) {
 	} // ends else
 }; // ends indexOf
 
-_.pull = function(ar, ar1){ //Removes all provided values from the given array using strict equality for comparisons, i.e. ===.
-	for(var i = 0; i < ar.length; i++){
+/*
+Removes all provided values from the given array using strict equality for comparisons, i.e. ===.
+*/
+_.pull = function(ar, ar1) { 
+	for(var i = 0; i < ar.length; i++) {
 		for(var j =0; j < ar1.length; j++) {
 			if(ar[i] === ar1[j]){
 				ar.splice(j, 1)
 			}
 		}
 	}
-		return ar;
+	return ar;
 	};
 
+/*
+Removes all elements from an array that the callback returns truey for and returns an array of removed elements. 
+The callback is bound to thisArg and invoked with three arguments; (value, index, array).
+If a property name is provided for callback the created "_.pluck" style callback will return the property value of the given element.
+If an object is provided for callback the created "_.where" style callback will return true for elements that have the properties of the given object, else false.
+*/
 _.remove = function(ar, callback) {
 	var newArray = [];
 	for (var i = 0; i < ar.length; i++){
 		if(callback(ar[i] === true))
 			newArray.push(ar[i]);
 	}
-		return newArray;
+	return newArray;
 }
 
 /*

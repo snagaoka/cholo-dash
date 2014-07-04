@@ -109,20 +109,18 @@ describe("Array functions", function(){
       result.should.include('e');
   });
   
+  // pull
   it("Removes all provided values from the given array using strict equality for comparisons, i.e. ===.", function(){
     var input1 = [1, 2, 3, 1, 2, 3];
-
     var result = _.pull(input1, 2 , 3);
-
     result.should.include(1);
     result.should.include(1);
   });
 
+  // remove
   it("Removes all elements from an array that the callback returns truey for and returns an array of removed elements. The callback is bound to thisArg and invoked with three arguments; (value, index, array).", function(){
   var input1 = [1, 2, 3, 4, 5, 6];
-
   var result = _.remove(input1, function(num) { return num % 2 == 0; });
-
   result.should.include(2);
   result.should.include(4);
   result.should.include(6);
