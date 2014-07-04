@@ -152,13 +152,17 @@ _.remove = function(ar, callback) {
 	var newArray = [];
 	for(var i = 0; i < ar.length; i++) {
 		if(callback(ar[i] === true))
+
 			newArray.push(ar[i]);
+		}
 	}
 	return newArray;
 };
 
 
+
 // COLLECTIONS
+
 
 /*
 Creates an array of elements from the specified indexes, or keys, of the collection. 
