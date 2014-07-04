@@ -138,6 +138,14 @@ _.pull = function(ar, ar1){ //Removes all provided values from the given array u
 		return ar;
 	};
 
+_.remove = function(ar, callback) {
+	var newArray = [];
+	for (var i = 0; i < ar.length; i++){
+		if(callback(ar[i] === true))
+			newArray.push(ar[i]);
+	}
+		return newArray;
+}
 
 /*
 Creates an array of elements from the specified indexes, or keys, of the collection. 

@@ -118,5 +118,16 @@ describe("Array functions", function(){
     result.should.include(1);
   });
 
+  it("Removes all elements from an array that the callback returns truey for and returns an array of removed elements. The callback is bound to thisArg and invoked with three arguments; (value, index, array).", function(){
+  var input1 = [1, 2, 3, 4, 5, 6];
+
+  var result = _.remove(input1, function(num) { return num % 2 == 0; });
+
+  result.should.include(2);
+  result.should.include(4);
+  result.should.include(6);
+
+
+});
 
 });
