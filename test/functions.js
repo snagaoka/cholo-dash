@@ -148,8 +148,14 @@ describe("Array functions", function(){
     result.should.include(3);
     result.should.include(6);
     result.should.include(9);
+  });
 
+  it("should return max value in a collection", function(){
+    var input1 = [2, 4, 6, 8, 3];
 
+    var result = _.max(input1);
+
+    result.should.eq(8);
 
   });
 

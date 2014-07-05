@@ -209,7 +209,18 @@ _.map = function(ar, callback){
 			 newArray.push(callback(ar[i]));
 		}
 		return newArray;
-};	
+};
+
+ _.max = function(ar){
+ 		var maxValue = "";
+ 		for(var i = 0; i < ar.length; i++){
+ 			if (ar[i] > maxValue){
+ 				maxValue = ar[i];
+ 			}
+ 		}
+ 		return maxValue;
+ }
+
 
 module.exports = _;
 
@@ -217,7 +228,7 @@ module.exports = _;
 
 
 
-// _.max = function(){}
+
 // _.min = function(){}
 // _.pluck = function(){}
 // _.shuffle = function(){}
