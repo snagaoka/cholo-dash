@@ -133,11 +133,11 @@ describe("Array functions", function(){
 
   // contains
   it("should return true if the given value is present in the array", function(){
-    var input1 = [1, 2, 3];
-    var input2 = [1];
-    var input3 = [2];
+    var input1 = [1, 2, 3, 4, 5, 1];
+    var input2 = 1;
+    var input3 = 2;
     var result = _.contains(input1, input2, input3); 
-    result.should.eq(false);
+    result.should.eq(true);
   });
 
 
