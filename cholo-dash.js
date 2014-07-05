@@ -151,14 +151,17 @@ If an object is provided for callback the created "_.where" style callback will 
 _.remove = function(ar, callback) {
 	var newArray = [];
 	for(var i = 0; i < ar.length; i++) {
-		if(callback(ar[i] === true))
+		if(callback(ar[i] === true)){
 			newArray.push(ar[i]);
+		}
 	}
 	return newArray;
 };
 
 
+
 // COLLECTIONS
+
 
 /*
 Creates an array of elements from the specified indexes, or keys, of the collection. 
@@ -180,16 +183,74 @@ Checks if a given value is present in a collection using strict equality for com
 If fromIndex is negative, it is used as the offset from the end of the collection.
 */
 _.contains = function (ar, arg1, arg2) {
-	for (var i = 0; i < ar.length; i++) {
-		for (i >= arg2; i < ar.length; i++) {
-			if(ar[i] === arg1) {
-				//console.log(function);
-				return true;
-			} else {
-				return false;
+		if(typeof arg2 == ""){
+			for (var i = 0; i < ar.length; i++) {
+					if(ar[i] === arg1) {
+						//console.log(function);
+						return true;
+					} else {
+						return false;
+					}
 			}
-		}
-	}
+		} else {
+				for (var i = arg2; i < ar.length; i++) {
+					if(ar[i] === arg1){
+						return true;
+					} else {
+						return false;
+					}
+				}			
+			}
 };
 
+_.map = function(ar, callback){
+		var newArray = [];
+		for (var i =0; i < ar.length; i++){
+			 newArray.push(callback(ar[i]));
+		}
+		return newArray;
+};
+
+ _.max = function(ar){
+ 		var maxValue = "";
+ 		for(var i = 0; i < ar.length; i++){
+ 			if (ar[i] > maxValue){
+ 				maxValue = ar[i];
+ 			}
+ 		}
+ 		return maxValue;
+ };
+
+_.min = function(ar){
+ 		var minValue = ar[0]; //Why does it not work if I create a null value?
+ 		for(var i = 0; i < ar.length; i++){
+ 			if (ar[i] < minValue){
+ 				minValue = ar[i];
+ 			}
+ 		}
+ 		return minValue;
+ };
+
+ _.pluck = function(){} 
+
 module.exports = _;
+
+
+
+
+
+
+
+// _.shuffle = function(){}
+// _.where = function(){}
+
+
+// _.findKey = function(){}
+// _.findLastKey = function() {}
+// _.isArray = function(){}
+// _.has = function(){}
+// _.isArray = function(){}
+// _.isBoolean = function(){}
+// _.isObject = function(){}
+// _.isNumber = function(){}
+// _.isString = function(){}

@@ -133,12 +133,37 @@ describe("Array functions", function(){
 
   // contains
   it("should return true if the given value is present in the array", function(){
-    var input1 = [1, 2, 3];
-    var input2 = [1];
-    var input3 = [2];
+    var input1 = [1, 2, 3, 4, 5, 1];
+    var input2 = 1;
+    var input3 = 2;
     var result = _.contains(input1, input2, input3); 
-    result.should.eq(false);
+    result.should.eq(true);
   });
 
+  // map
+  it("should create an array of values by running each element in the collection through the callback.", function(){
+    var input1 = [1, 2, 3];
+    var result = _.map(input1, function(num){ return num * 3; });
+
+    result.should.include(3);
+    result.should.include(6);
+    result.should.include(9);
+  });
+
+  it("should return max value in a collection", function(){
+    var input1 = [2, 4, 6, 8, 3];
+
+    var result = _.max(input1);
+
+    result.should.eq(8);
+  });
+
+  it("should return min value in a collection", function(){
+    var input1 = [1, 2, 6, 8, 3];
+
+    var result = _.min(input1);
+
+    result.should.eq(1);
+  });
 
 });
