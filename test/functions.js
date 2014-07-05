@@ -158,6 +158,12 @@ describe("Array functions", function(){
     result.should.eq(8);
   });
 
-  
+  it("should return min value in a collection", function(){
+    var input1 = [1, 2, 6, 8, 3];
+
+    var result = _.min(input1);
+
+    result.should.eq(1);
+  });
 
 });

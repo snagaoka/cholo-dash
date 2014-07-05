@@ -221,16 +221,17 @@ _.map = function(ar, callback){
  		return maxValue;
  };
 
-
 _.min = function(ar){
- 		var maxValue = "";
+ 		var minValue = ar[0]; //Why does it not work if I create a null value?
  		for(var i = 0; i < ar.length; i++){
- 			if (ar[i] > maxValue){
- 				maxValue = ar[i];
+ 			if (ar[i] < minValue){
+ 				minValue = ar[i];
  			}
  		}
- 		return maxValue;
+ 		return minValue;
  };
+
+ _.pluck = function(){} 
 
 module.exports = _;
 
@@ -239,7 +240,7 @@ module.exports = _;
 
 
 
-// _.pluck = function(){}
+
 // _.shuffle = function(){}
 // _.where = function(){}
 
