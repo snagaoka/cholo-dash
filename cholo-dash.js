@@ -219,8 +219,18 @@ _.map = function(ar, callback){
  			}
  		}
  		return maxValue;
- }
+ };
 
+
+_.min = function(ar){
+ 		var maxValue = "";
+ 		for(var i = 0; i < ar.length; i++){
+ 			if (ar[i] > maxValue){
+ 				maxValue = ar[i];
+ 			}
+ 		}
+ 		return maxValue;
+ };
 
 module.exports = _;
 
@@ -229,7 +239,6 @@ module.exports = _;
 
 
 
-// _.min = function(){}
 // _.pluck = function(){}
 // _.shuffle = function(){}
 // _.where = function(){}

@@ -156,7 +156,8 @@ describe("Array functions", function(){
     var result = _.max(input1);
 
     result.should.eq(8);
-
   });
+
+  
 
 });
