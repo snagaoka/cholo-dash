@@ -183,27 +183,33 @@ Checks if a given value is present in a collection using strict equality for com
 If fromIndex is negative, it is used as the offset from the end of the collection.
 */
 _.contains = function (ar, arg1, arg2) {
-	if(typeof arg2 == ""){
-		for (var i = 0; i < ar.length; i++) {
-				if(ar[i] === arg1) {
-					//console.log(function);
-					return true;
-				} else {
-					return false;
-				}
-		}
-	} else {
-			for (var i = arg2; i < ar.length; i++) {
-				if(ar[i] === arg1){
-					return true;
-				} else {
-					return false;
-				}
-			}			
-		}
+		if(typeof arg2 == ""){
+			for (var i = 0; i < ar.length; i++) {
+					if(ar[i] === arg1) {
+						//console.log(function);
+						return true;
+					} else {
+						return false;
+					}
+			}
+		} else {
+				for (var i = arg2; i < ar.length; i++) {
+					if(ar[i] === arg1){
+						return true;
+					} else {
+						return false;
+					}
+				}			
+			}
 };
 
-_.map = function(){}
+_.map = function(ar, callback){
+		var newArray = [];
+		for (var i =0; i < ar.length; i++){
+			 newArray.push(callback(ar[i]));
+		}
+		return newArray;
+};	
 
 module.exports = _;
 

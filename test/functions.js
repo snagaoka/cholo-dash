@@ -140,5 +140,17 @@ describe("Array functions", function(){
     result.should.eq(true);
   });
 
+  // map
+  it("should create an array of values by running each element in the collection through the callback.", function(){
+    var input1 = [1, 2, 3];
+    var result = _.map(input1, function(num){ return num * 3; });
+
+    result.should.include(3);
+    result.should.include(6);
+    result.should.include(9);
+
+
+
+  });
 
 });
